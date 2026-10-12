@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+
+node_modules/
+dist/
+.venv/
+.venv-*/
+venv/
+__pycache__/
+*.py[cod]
+
+ai_module/data/raw/
+ai_module/outputs/
+ai_module/models/
+ai_module/.venv*/

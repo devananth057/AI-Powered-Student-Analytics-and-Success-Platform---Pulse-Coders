@@ -1,0 +1,10 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/aswathram63-ops/edupulse-frontend.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
