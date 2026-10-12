@@ -1,0 +1,804 @@
+{
+    "openapi":  "3.1.0",
+    "info":  {
+                 "title":  "EduPulse AI API",
+                 "description":  "Student analytics prototype using academic assessment, learning-platform engagement, and optional placement indicators.",
+                 "version":  "1.2.0"
+             },
+    "paths":  {
+                  "/":  {
+                            "get":  {
+                                        "summary":  "Home",
+                                        "operationId":  "home__get",
+                                        "responses":  {
+                                                          "200":  {
+                                                                      "description":  "Successful Response",
+                                                                      "content":  {
+                                                                                      "application/json":  {
+                                                                                                               "schema":  {
+
+                                                                                                                          }
+                                                                                                           }
+                                                                                  }
+                                                                  }
+                                                      }
+                                    }
+                        },
+                  "/health":  {
+                                  "get":  {
+                                              "summary":  "Health",
+                                              "operationId":  "health_health_get",
+                                              "responses":  {
+                                                                "200":  {
+                                                                            "description":  "Successful Response",
+                                                                            "content":  {
+                                                                                            "application/json":  {
+                                                                                                                     "schema":  {
+
+                                                                                                                                }
+                                                                                                                 }
+                                                                                        }
+                                                                        }
+                                                            }
+                                          }
+                              },
+                  "/predict":  {
+                                   "post":  {
+                                                "summary":  "Predict",
+                                                "operationId":  "predict_predict_post",
+                                                "requestBody":  {
+                                                                    "content":  {
+                                                                                    "application/json":  {
+                                                                                                             "schema":  {
+                                                                                                                            "$ref":  "#/components/schemas/StudentFeatures"
+                                                                                                                        }
+                                                                                                         }
+                                                                                },
+                                                                    "required":  true
+                                                                },
+                                                "responses":  {
+                                                                  "200":  {
+                                                                              "description":  "Successful Response",
+                                                                              "content":  {
+                                                                                              "application/json":  {
+                                                                                                                       "schema":  {
+
+                                                                                                                                  }
+                                                                                                                   }
+                                                                                          }
+                                                                          },
+                                                                  "422":  {
+                                                                              "description":  "Validation Error",
+                                                                              "content":  {
+                                                                                              "application/json":  {
+                                                                                                                       "schema":  {
+                                                                                                                                      "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                  }
+                                                                                                                   }
+                                                                                          }
+                                                                          }
+                                                              }
+                                            }
+                               },
+                  "/success-score":  {
+                                         "post":  {
+                                                      "summary":  "Get Success Score",
+                                                      "operationId":  "get_success_score_success_score_post",
+                                                      "requestBody":  {
+                                                                          "content":  {
+                                                                                          "application/json":  {
+                                                                                                                   "schema":  {
+                                                                                                                                  "$ref":  "#/components/schemas/SuccessScoreRequest"
+                                                                                                                              }
+                                                                                                               }
+                                                                                      },
+                                                                          "required":  true
+                                                                      },
+                                                      "responses":  {
+                                                                        "200":  {
+                                                                                    "description":  "Successful Response",
+                                                                                    "content":  {
+                                                                                                    "application/json":  {
+                                                                                                                             "schema":  {
+
+                                                                                                                                        }
+                                                                                                                         }
+                                                                                                }
+                                                                                },
+                                                                        "422":  {
+                                                                                    "description":  "Validation Error",
+                                                                                    "content":  {
+                                                                                                    "application/json":  {
+                                                                                                                             "schema":  {
+                                                                                                                                            "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                        }
+                                                                                                                         }
+                                                                                                }
+                                                                                }
+                                                                    }
+                                                  }
+                                     },
+                  "/placement-risk":  {
+                                          "post":  {
+                                                       "summary":  "Get Placement Risk",
+                                                       "operationId":  "get_placement_risk_placement_risk_post",
+                                                       "requestBody":  {
+                                                                           "content":  {
+                                                                                           "application/json":  {
+                                                                                                                    "schema":  {
+                                                                                                                                   "$ref":  "#/components/schemas/PlacementRiskRequest"
+                                                                                                                               }
+                                                                                                                }
+                                                                                       },
+                                                                           "required":  true
+                                                                       },
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "Successful Response",
+                                                                                     "content":  {
+                                                                                                     "application/json":  {
+                                                                                                                              "schema":  {
+
+                                                                                                                                         }
+                                                                                                                          }
+                                                                                                 }
+                                                                                 },
+                                                                         "422":  {
+                                                                                     "description":  "Validation Error",
+                                                                                     "content":  {
+                                                                                                     "application/json":  {
+                                                                                                                              "schema":  {
+                                                                                                                                             "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                         }
+                                                                                                                          }
+                                                                                                 }
+                                                                                 }
+                                                                     }
+                                                   }
+                                      },
+                  "/student-segmentation":  {
+                                                "post":  {
+                                                             "summary":  "Get Student Segmentation",
+                                                             "operationId":  "get_student_segmentation_student_segmentation_post",
+                                                             "requestBody":  {
+                                                                                 "content":  {
+                                                                                                 "application/json":  {
+                                                                                                                          "schema":  {
+                                                                                                                                         "$ref":  "#/components/schemas/StudentSegmentationRequest"
+                                                                                                                                     }
+                                                                                                                      }
+                                                                                             },
+                                                                                 "required":  true
+                                                                             },
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "Successful Response",
+                                                                                           "content":  {
+                                                                                                           "application/json":  {
+                                                                                                                                    "schema":  {
+
+                                                                                                                                               }
+                                                                                                                                }
+                                                                                                       }
+                                                                                       },
+                                                                               "422":  {
+                                                                                           "description":  "Validation Error",
+                                                                                           "content":  {
+                                                                                                           "application/json":  {
+                                                                                                                                    "schema":  {
+                                                                                                                                                   "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                               }
+                                                                                                                                }
+                                                                                                       }
+                                                                                       }
+                                                                           }
+                                                         }
+                                            },
+                  "/student-analytics":  {
+                                             "post":  {
+                                                          "summary":  "Get Student Analytics",
+                                                          "operationId":  "get_student_analytics_student_analytics_post",
+                                                          "requestBody":  {
+                                                                              "content":  {
+                                                                                              "application/json":  {
+                                                                                                                       "schema":  {
+                                                                                                                                      "$ref":  "#/components/schemas/StudentAnalyticsRequest"
+                                                                                                                                  }
+                                                                                                                   }
+                                                                                          },
+                                                                              "required":  true
+                                                                          },
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "Successful Response",
+                                                                                        "content":  {
+                                                                                                        "application/json":  {
+                                                                                                                                 "schema":  {
+
+                                                                                                                                            }
+                                                                                                                             }
+                                                                                                    }
+                                                                                    },
+                                                                            "422":  {
+                                                                                        "description":  "Validation Error",
+                                                                                        "content":  {
+                                                                                                        "application/json":  {
+                                                                                                                                 "schema":  {
+                                                                                                                                                "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                            }
+                                                                                                                             }
+                                                                                                    }
+                                                                                    }
+                                                                        }
+                                                      }
+                                         }
+              },
+    "components":  {
+                       "schemas":  {
+                                       "HTTPValidationError":  {
+                                                                   "properties":  {
+                                                                                      "detail":  {
+                                                                                                     "items":  {
+                                                                                                                   "$ref":  "#/components/schemas/ValidationError"
+                                                                                                               },
+                                                                                                     "type":  "array",
+                                                                                                     "title":  "Detail"
+                                                                                                 }
+                                                                                  },
+                                                                   "type":  "object",
+                                                                   "title":  "HTTPValidationError"
+                                                               },
+                                       "PlacementRiskRequest":  {
+                                                                    "properties":  {
+                                                                                       "CGPA":  {
+                                                                                                    "type":  "number",
+                                                                                                    "maximum":  10.0,
+                                                                                                    "minimum":  0.0,
+                                                                                                    "title":  "Cgpa"
+                                                                                                },
+                                                                                       "Internships":  {
+                                                                                                           "type":  "integer",
+                                                                                                           "minimum":  0.0,
+                                                                                                           "title":  "Internships"
+                                                                                                       },
+                                                                                       "Projects":  {
+                                                                                                        "type":  "integer",
+                                                                                                        "minimum":  0.0,
+                                                                                                        "title":  "Projects"
+                                                                                                    },
+                                                                                       "Workshops/Certifications":  {
+                                                                                                                        "type":  "integer",
+                                                                                                                        "minimum":  0.0,
+                                                                                                                        "title":  "Workshops/Certifications"
+                                                                                                                    },
+                                                                                       "AptitudeTestScore":  {
+                                                                                                                 "type":  "number",
+                                                                                                                 "maximum":  100.0,
+                                                                                                                 "minimum":  0.0,
+                                                                                                                 "title":  "Aptitudetestscore"
+                                                                                                             },
+                                                                                       "SoftSkillsRating":  {
+                                                                                                                "type":  "number",
+                                                                                                                "maximum":  5.0,
+                                                                                                                "minimum":  0.0,
+                                                                                                                "title":  "Softskillsrating"
+                                                                                                            },
+                                                                                       "ExtracurricularActivities":  {
+                                                                                                                         "type":  "string",
+                                                                                                                         "enum":  [
+                                                                                                                                      "Yes",
+                                                                                                                                      "No"
+                                                                                                                                  ],
+                                                                                                                         "title":  "Extracurricularactivities"
+                                                                                                                     },
+                                                                                       "PlacementTraining":  {
+                                                                                                                 "type":  "string",
+                                                                                                                 "enum":  [
+                                                                                                                              "Yes",
+                                                                                                                              "No"
+                                                                                                                          ],
+                                                                                                                 "title":  "Placementtraining"
+                                                                                                             },
+                                                                                       "SSC_Marks":  {
+                                                                                                         "type":  "number",
+                                                                                                         "maximum":  100.0,
+                                                                                                         "minimum":  0.0,
+                                                                                                         "title":  "Ssc Marks"
+                                                                                                     },
+                                                                                       "HSC_Marks":  {
+                                                                                                         "type":  "number",
+                                                                                                         "maximum":  100.0,
+                                                                                                         "minimum":  0.0,
+                                                                                                         "title":  "Hsc Marks"
+                                                                                                     }
+                                                                                   },
+                                                                    "type":  "object",
+                                                                    "required":  [
+                                                                                     "CGPA",
+                                                                                     "Internships",
+                                                                                     "Projects",
+                                                                                     "Workshops/Certifications",
+                                                                                     "AptitudeTestScore",
+                                                                                     "SoftSkillsRating",
+                                                                                     "ExtracurricularActivities",
+                                                                                     "PlacementTraining",
+                                                                                     "SSC_Marks",
+                                                                                     "HSC_Marks"
+                                                                                 ],
+                                                                    "title":  "PlacementRiskRequest"
+                                                                },
+                                       "StudentAnalyticsRequest":  {
+                                                                       "properties":  {
+                                                                                          "early_assessment_count":  {
+                                                                                                                         "anyOf":  [
+                                                                                                                                       {
+                                                                                                                                           "type":  "number",
+                                                                                                                                           "minimum":  0.0
+                                                                                                                                       },
+                                                                                                                                       {
+                                                                                                                                           "type":  "null"
+                                                                                                                                       }
+                                                                                                                                   ],
+                                                                                                                         "title":  "Early Assessment Count"
+                                                                                                                     },
+                                                                                          "early_average_score":  {
+                                                                                                                      "anyOf":  [
+                                                                                                                                    {
+                                                                                                                                        "type":  "number",
+                                                                                                                                        "maximum":  100.0,
+                                                                                                                                        "minimum":  0.0
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "null"
+                                                                                                                                    }
+                                                                                                                                ],
+                                                                                                                      "title":  "Early Average Score"
+                                                                                                                  },
+                                                                                          "early_lowest_score":  {
+                                                                                                                     "anyOf":  [
+                                                                                                                                   {
+                                                                                                                                       "type":  "number",
+                                                                                                                                       "maximum":  100.0,
+                                                                                                                                       "minimum":  0.0
+                                                                                                                                   },
+                                                                                                                                   {
+                                                                                                                                       "type":  "null"
+                                                                                                                                   }
+                                                                                                                               ],
+                                                                                                                     "title":  "Early Lowest Score"
+                                                                                                                 },
+                                                                                          "early_latest_submission_day":  {
+                                                                                                                              "anyOf":  [
+                                                                                                                                            {
+                                                                                                                                                "type":  "number",
+                                                                                                                                                "minimum":  0.0
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "type":  "null"
+                                                                                                                                            }
+                                                                                                                                        ],
+                                                                                                                              "title":  "Early Latest Submission Day"
+                                                                                                                          },
+                                                                                          "early_total_clicks":  {
+                                                                                                                     "anyOf":  [
+                                                                                                                                   {
+                                                                                                                                       "type":  "number",
+                                                                                                                                       "minimum":  0.0
+                                                                                                                                   },
+                                                                                                                                   {
+                                                                                                                                       "type":  "null"
+                                                                                                                                   }
+                                                                                                                               ],
+                                                                                                                     "title":  "Early Total Clicks"
+                                                                                                                 },
+                                                                                          "early_active_days":  {
+                                                                                                                    "anyOf":  [
+                                                                                                                                  {
+                                                                                                                                      "type":  "number",
+                                                                                                                                      "minimum":  0.0
+                                                                                                                                  },
+                                                                                                                                  {
+                                                                                                                                      "type":  "null"
+                                                                                                                                  }
+                                                                                                                              ],
+                                                                                                                    "title":  "Early Active Days"
+                                                                                                                },
+                                                                                          "early_active_sites":  {
+                                                                                                                     "anyOf":  [
+                                                                                                                                   {
+                                                                                                                                       "type":  "number",
+                                                                                                                                       "minimum":  0.0
+                                                                                                                                   },
+                                                                                                                                   {
+                                                                                                                                       "type":  "null"
+                                                                                                                                   }
+                                                                                                                               ],
+                                                                                                                     "title":  "Early Active Sites"
+                                                                                                                 },
+                                                                                          "CGPA":  {
+                                                                                                       "anyOf":  [
+                                                                                                                     {
+                                                                                                                         "type":  "number",
+                                                                                                                         "maximum":  10.0,
+                                                                                                                         "minimum":  0.0
+                                                                                                                     },
+                                                                                                                     {
+                                                                                                                         "type":  "null"
+                                                                                                                     }
+                                                                                                                 ],
+                                                                                                       "title":  "Cgpa"
+                                                                                                   },
+                                                                                          "Internships":  {
+                                                                                                              "anyOf":  [
+                                                                                                                            {
+                                                                                                                                "type":  "integer",
+                                                                                                                                "minimum":  0.0
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                "type":  "null"
+                                                                                                                            }
+                                                                                                                        ],
+                                                                                                              "title":  "Internships"
+                                                                                                          },
+                                                                                          "Projects":  {
+                                                                                                           "anyOf":  [
+                                                                                                                         {
+                                                                                                                             "type":  "integer",
+                                                                                                                             "minimum":  0.0
+                                                                                                                         },
+                                                                                                                         {
+                                                                                                                             "type":  "null"
+                                                                                                                         }
+                                                                                                                     ],
+                                                                                                           "title":  "Projects"
+                                                                                                       },
+                                                                                          "Workshops/Certifications":  {
+                                                                                                                           "anyOf":  [
+                                                                                                                                         {
+                                                                                                                                             "type":  "integer",
+                                                                                                                                             "minimum":  0.0
+                                                                                                                                         },
+                                                                                                                                         {
+                                                                                                                                             "type":  "null"
+                                                                                                                                         }
+                                                                                                                                     ],
+                                                                                                                           "title":  "Workshops/Certifications"
+                                                                                                                       },
+                                                                                          "AptitudeTestScore":  {
+                                                                                                                    "anyOf":  [
+                                                                                                                                  {
+                                                                                                                                      "type":  "number",
+                                                                                                                                      "maximum":  100.0,
+                                                                                                                                      "minimum":  0.0
+                                                                                                                                  },
+                                                                                                                                  {
+                                                                                                                                      "type":  "null"
+                                                                                                                                  }
+                                                                                                                              ],
+                                                                                                                    "title":  "Aptitudetestscore"
+                                                                                                                },
+                                                                                          "SoftSkillsRating":  {
+                                                                                                                   "anyOf":  [
+                                                                                                                                 {
+                                                                                                                                     "type":  "number",
+                                                                                                                                     "maximum":  5.0,
+                                                                                                                                     "minimum":  0.0
+                                                                                                                                 },
+                                                                                                                                 {
+                                                                                                                                     "type":  "null"
+                                                                                                                                 }
+                                                                                                                             ],
+                                                                                                                   "title":  "Softskillsrating"
+                                                                                                               },
+                                                                                          "ExtracurricularActivities":  {
+                                                                                                                            "anyOf":  [
+                                                                                                                                          {
+                                                                                                                                              "type":  "string",
+                                                                                                                                              "enum":  [
+                                                                                                                                                           "Yes",
+                                                                                                                                                           "No"
+                                                                                                                                                       ]
+                                                                                                                                          },
+                                                                                                                                          {
+                                                                                                                                              "type":  "null"
+                                                                                                                                          }
+                                                                                                                                      ],
+                                                                                                                            "title":  "Extracurricularactivities"
+                                                                                                                        },
+                                                                                          "PlacementTraining":  {
+                                                                                                                    "anyOf":  [
+                                                                                                                                  {
+                                                                                                                                      "type":  "string",
+                                                                                                                                      "enum":  [
+                                                                                                                                                   "Yes",
+                                                                                                                                                   "No"
+                                                                                                                                               ]
+                                                                                                                                  },
+                                                                                                                                  {
+                                                                                                                                      "type":  "null"
+                                                                                                                                  }
+                                                                                                                              ],
+                                                                                                                    "title":  "Placementtraining"
+                                                                                                                },
+                                                                                          "SSC_Marks":  {
+                                                                                                            "anyOf":  [
+                                                                                                                          {
+                                                                                                                              "type":  "number",
+                                                                                                                              "maximum":  100.0,
+                                                                                                                              "minimum":  0.0
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                              "type":  "null"
+                                                                                                                          }
+                                                                                                                      ],
+                                                                                                            "title":  "Ssc Marks"
+                                                                                                        },
+                                                                                          "HSC_Marks":  {
+                                                                                                            "anyOf":  [
+                                                                                                                          {
+                                                                                                                              "type":  "number",
+                                                                                                                              "maximum":  100.0,
+                                                                                                                              "minimum":  0.0
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                              "type":  "null"
+                                                                                                                          }
+                                                                                                                      ],
+                                                                                                            "title":  "Hsc Marks"
+                                                                                                        },
+                                                                                          "student_id":  {
+                                                                                                             "anyOf":  [
+                                                                                                                           {
+                                                                                                                               "type":  "string"
+                                                                                                                           },
+                                                                                                                           {
+                                                                                                                               "type":  "null"
+                                                                                                                           }
+                                                                                                                       ],
+                                                                                                             "title":  "Student Id"
+                                                                                                         }
+                                                                                      },
+                                                                       "type":  "object",
+                                                                       "title":  "StudentAnalyticsRequest"
+                                                                   },
+                                       "StudentFeatures":  {
+                                                               "properties":  {
+                                                                                  "early_assessment_count":  {
+                                                                                                                 "type":  "integer",
+                                                                                                                 "minimum":  0.0,
+                                                                                                                 "title":  "Early Assessment Count"
+                                                                                                             },
+                                                                                  "early_average_score":  {
+                                                                                                              "type":  "number",
+                                                                                                              "maximum":  100.0,
+                                                                                                              "minimum":  0.0,
+                                                                                                              "title":  "Early Average Score"
+                                                                                                          },
+                                                                                  "early_lowest_score":  {
+                                                                                                             "type":  "number",
+                                                                                                             "maximum":  100.0,
+                                                                                                             "minimum":  0.0,
+                                                                                                             "title":  "Early Lowest Score"
+                                                                                                         },
+                                                                                  "early_latest_submission_day":  {
+                                                                                                                      "type":  "number",
+                                                                                                                      "maximum":  28.0,
+                                                                                                                      "minimum":  0.0,
+                                                                                                                      "title":  "Early Latest Submission Day"
+                                                                                                                  },
+                                                                                  "early_total_clicks":  {
+                                                                                                             "type":  "number",
+                                                                                                             "minimum":  0.0,
+                                                                                                             "title":  "Early Total Clicks"
+                                                                                                         },
+                                                                                  "early_active_days":  {
+                                                                                                            "type":  "integer",
+                                                                                                            "minimum":  0.0,
+                                                                                                            "title":  "Early Active Days"
+                                                                                                        },
+                                                                                  "early_active_sites":  {
+                                                                                                             "type":  "integer",
+                                                                                                             "minimum":  0.0,
+                                                                                                             "title":  "Early Active Sites"
+                                                                                                         }
+                                                                              },
+                                                               "type":  "object",
+                                                               "required":  [
+                                                                                "early_assessment_count",
+                                                                                "early_average_score",
+                                                                                "early_lowest_score",
+                                                                                "early_latest_submission_day",
+                                                                                "early_total_clicks",
+                                                                                "early_active_days",
+                                                                                "early_active_sites"
+                                                                            ],
+                                                               "title":  "StudentFeatures"
+                                                           },
+                                       "StudentSegmentationRequest":  {
+                                                                          "properties":  {
+                                                                                             "early_assessment_count":  {
+                                                                                                                            "type":  "integer",
+                                                                                                                            "minimum":  0.0,
+                                                                                                                            "title":  "Early Assessment Count"
+                                                                                                                        },
+                                                                                             "early_average_score":  {
+                                                                                                                         "type":  "number",
+                                                                                                                         "maximum":  100.0,
+                                                                                                                         "minimum":  0.0,
+                                                                                                                         "title":  "Early Average Score"
+                                                                                                                     },
+                                                                                             "early_lowest_score":  {
+                                                                                                                        "type":  "number",
+                                                                                                                        "maximum":  100.0,
+                                                                                                                        "minimum":  0.0,
+                                                                                                                        "title":  "Early Lowest Score"
+                                                                                                                    },
+                                                                                             "early_latest_submission_day":  {
+                                                                                                                                 "type":  "number",
+                                                                                                                                 "maximum":  28.0,
+                                                                                                                                 "minimum":  0.0,
+                                                                                                                                 "title":  "Early Latest Submission Day"
+                                                                                                                             },
+                                                                                             "early_total_clicks":  {
+                                                                                                                        "type":  "number",
+                                                                                                                        "minimum":  0.0,
+                                                                                                                        "title":  "Early Total Clicks"
+                                                                                                                    },
+                                                                                             "early_active_days":  {
+                                                                                                                       "type":  "integer",
+                                                                                                                       "minimum":  0.0,
+                                                                                                                       "title":  "Early Active Days"
+                                                                                                                   },
+                                                                                             "early_active_sites":  {
+                                                                                                                        "type":  "integer",
+                                                                                                                        "minimum":  0.0,
+                                                                                                                        "title":  "Early Active Sites"
+                                                                                                                    }
+                                                                                         },
+                                                                          "type":  "object",
+                                                                          "required":  [
+                                                                                           "early_assessment_count",
+                                                                                           "early_average_score",
+                                                                                           "early_lowest_score",
+                                                                                           "early_latest_submission_day",
+                                                                                           "early_total_clicks",
+                                                                                           "early_active_days",
+                                                                                           "early_active_sites"
+                                                                                       ],
+                                                                          "title":  "StudentSegmentationRequest"
+                                                                      },
+                                       "SuccessScoreRequest":  {
+                                                                   "properties":  {
+                                                                                      "early_assessment_count":  {
+                                                                                                                     "anyOf":  [
+                                                                                                                                   {
+                                                                                                                                       "type":  "number",
+                                                                                                                                       "minimum":  0.0
+                                                                                                                                   },
+                                                                                                                                   {
+                                                                                                                                       "type":  "null"
+                                                                                                                                   }
+                                                                                                                               ],
+                                                                                                                     "title":  "Early Assessment Count"
+                                                                                                                 },
+                                                                                      "early_average_score":  {
+                                                                                                                  "anyOf":  [
+                                                                                                                                {
+                                                                                                                                    "type":  "number",
+                                                                                                                                    "maximum":  100.0,
+                                                                                                                                    "minimum":  0.0
+                                                                                                                                },
+                                                                                                                                {
+                                                                                                                                    "type":  "null"
+                                                                                                                                }
+                                                                                                                            ],
+                                                                                                                  "title":  "Early Average Score"
+                                                                                                              },
+                                                                                      "early_lowest_score":  {
+                                                                                                                 "anyOf":  [
+                                                                                                                               {
+                                                                                                                                   "type":  "number",
+                                                                                                                                   "maximum":  100.0,
+                                                                                                                                   "minimum":  0.0
+                                                                                                                               },
+                                                                                                                               {
+                                                                                                                                   "type":  "null"
+                                                                                                                               }
+                                                                                                                           ],
+                                                                                                                 "title":  "Early Lowest Score"
+                                                                                                             },
+                                                                                      "early_latest_submission_day":  {
+                                                                                                                          "anyOf":  [
+                                                                                                                                        {
+                                                                                                                                            "type":  "number",
+                                                                                                                                            "minimum":  0.0
+                                                                                                                                        },
+                                                                                                                                        {
+                                                                                                                                            "type":  "null"
+                                                                                                                                        }
+                                                                                                                                    ],
+                                                                                                                          "title":  "Early Latest Submission Day"
+                                                                                                                      },
+                                                                                      "early_total_clicks":  {
+                                                                                                                 "anyOf":  [
+                                                                                                                               {
+                                                                                                                                   "type":  "number",
+                                                                                                                                   "minimum":  0.0
+                                                                                                                               },
+                                                                                                                               {
+                                                                                                                                   "type":  "null"
+                                                                                                                               }
+                                                                                                                           ],
+                                                                                                                 "title":  "Early Total Clicks"
+                                                                                                             },
+                                                                                      "early_active_days":  {
+                                                                                                                "anyOf":  [
+                                                                                                                              {
+                                                                                                                                  "type":  "number",
+                                                                                                                                  "minimum":  0.0
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                  "type":  "null"
+                                                                                                                              }
+                                                                                                                          ],
+                                                                                                                "title":  "Early Active Days"
+                                                                                                            },
+                                                                                      "early_active_sites":  {
+                                                                                                                 "anyOf":  [
+                                                                                                                               {
+                                                                                                                                   "type":  "number",
+                                                                                                                                   "minimum":  0.0
+                                                                                                                               },
+                                                                                                                               {
+                                                                                                                                   "type":  "null"
+                                                                                                                               }
+                                                                                                                           ],
+                                                                                                                 "title":  "Early Active Sites"
+                                                                                                             }
+                                                                                  },
+                                                                   "type":  "object",
+                                                                   "title":  "SuccessScoreRequest"
+                                                               },
+                                       "ValidationError":  {
+                                                               "properties":  {
+                                                                                  "loc":  {
+                                                                                              "items":  {
+                                                                                                            "anyOf":  [
+                                                                                                                          {
+                                                                                                                              "type":  "string"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                              "type":  "integer"
+                                                                                                                          }
+                                                                                                                      ]
+                                                                                                        },
+                                                                                              "type":  "array",
+                                                                                              "title":  "Location"
+                                                                                          },
+                                                                                  "msg":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "Message"
+                                                                                          },
+                                                                                  "type":  {
+                                                                                               "type":  "string",
+                                                                                               "title":  "Error Type"
+                                                                                           },
+                                                                                  "input":  {
+                                                                                                "title":  "Input"
+                                                                                            },
+                                                                                  "ctx":  {
+                                                                                              "type":  "object",
+                                                                                              "title":  "Context"
+                                                                                          }
+                                                                              },
+                                                               "type":  "object",
+                                                               "required":  [
+                                                                                "loc",
+                                                                                "msg",
+                                                                                "type"
+                                                                            ],
+                                                               "title":  "ValidationError"
+                                                           }
+                                   }
+                   }
+}

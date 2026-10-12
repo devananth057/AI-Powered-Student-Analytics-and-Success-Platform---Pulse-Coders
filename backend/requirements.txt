@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pymongo
+pydantic
+email-validator
+httpx
+pydantic-settings
+python-jose[cryptography]
+pwdlib[argon2]
+pytest
+
