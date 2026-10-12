@@ -1,12 +1,16 @@
 
+import os
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 
-MONGO_URL = "mongodb://localhost:27017/users"
+MONGO_URL = os.getenv(
+    "MONGO_URL",
+    "mongodb://localhost:27017/users"
+)
 
 client = MongoClient(
     MONGO_URL,
-    serverSelectionTimeoutMS=5000,
+    serverSelectionTimeoutMS=10000,
 )
 
 db = client["users"]
@@ -14,6 +18,7 @@ db = client["users"]
 students_collection = db["students"]
 predictions_collection = db["predictions"]
 interventions_collection = db["interventions"]
+
 students_collection.create_index("student_id", unique=True)
 students_collection.create_index(
     [("email", 1)],
